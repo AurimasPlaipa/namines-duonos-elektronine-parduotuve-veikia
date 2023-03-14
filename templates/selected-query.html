@@ -1,0 +1,37 @@
+{% include 'header.html' %}
+{% extends 'base.html' %}
+
+
+{% block title %} Naminės duonos elektroninė parduotuvė {% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            {% for bread in all_breads %}
+                <div class="card-deck main-page-bread">
+                    <div class="col sm-12 md-4 lg-3">
+                        <div class="card">
+                            <div class="image-text-holder">
+                                <a href="{{ url_for('selected_bread', bread_id=bread.id) }}"><img src="{{ '../' + bread.photo_url }}" class="card-img-top card-id img-fluid">
+                                </a>
+                                <a href="{{ url_for('selected_bread', bread_id=bread.id) }}" class="image-text">Daugiau informacijos <i class="fas fa-search"></i></a>
+                            </div>
+                            <div class="card-body">
+                                <h4>{{ bread.name }}</h4>
+                                <h6 class="card-subtitle mb-2 text-muted">{{ bread.type }}</h6>
+                                    {% if bread.supply >= 1%}
+                                         <div class="buy d-flex justify-content-between align-items-center">
+                                            <div class="text-black font-weight-bold"><h5 class="mt-2">€{{ bread.price }}</h5></div>
+                                             <a href="{{ url_for('add_item_to_bag', item_id=item.id) }}" class="btn btn-secondary"><i class="fas fa-shopping-cart"></i>Į krepšelį</a>
+                                          </div>
+                                    {% else %}
+                                        <button class="btn btn-primary" disabled>Šiuo metu neturime</button>
+                                    {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

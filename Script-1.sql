@@ -1,0 +1,1 @@
+INSERT INTO "breads" ("name","description","price") VALUES ("Naminė duona su vaisiais", "Ruginių ir kvietinių miltų duona, kepta naudojant natūralų raugą. Duona su vaisiais, be konservantų", "7.00")

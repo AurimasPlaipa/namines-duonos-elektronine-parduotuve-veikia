@@ -1,0 +1,47 @@
+{% include 'header.html' %}
+{% extends 'base.html' %}
+
+
+{% block title %} {{ requested_bread.name }} {% endblock %}
+{% block content %}
+<div class="container selected-bread">
+    <div class="card mb-3 w-75">
+        <div class="row g-0">
+            <img src="{{ '../' + requested_bread.photo_url }}" class="img-fluid selected-bread-image">
+            <div class="card-body">
+                <div class="selected-bread-detail">
+                    <h4 class="card-title">{{requested_bread.name}}</h4>
+                    <ul class="list-group list-group-flush">
+                         
+                        <!-- <li class="list-group-item">
+                            {{ requested_bread.type }} -->
+                        </li>
+                        <li class="list-group-bread text-black font-weight-bold">
+                             {{ requested_bread.price }} €
+                        </li>
+                        <!-- <li class="list-group-item">
+                            Dydis {{ requested_item.size }}
+                        </li> -->
+                        <!-- <li class="list-group-item">
+                            Turime {{ requested_item.supply }} vienetą /-us -->
+                        </li>
+                        <li class="list-group-bread">
+                             {{ requested_bread.description }}
+                        </li>
+                    </ul>
+                    <div class="card-body">
+                        {% if requested_bread.supply >= 1 %}
+                            <a href="{{ url_for('add_bread_to_bag', bread_id=requested_bread.id) }}" class="btn btn-secondary"><i class="fas fa-shopping-cart"></i>Pridėti į krepšelį</a>
+                        {% else %}
+                            <button class="btn btn-secondary" disabled>Atsiprašome, šios duonos neturime</button>
+                        {% endif %}
+                        {% if current_user.id == 1: %}
+                            <a href="{{ url_for('delete_bread', bread_id=requested_bread.id) }}" class="btn btn-secondary">Pašalinti</a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

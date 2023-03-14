@@ -1,0 +1,42 @@
+{% include 'header.html' %}
+{% extends 'base.html' %}
+
+
+{% block title %} Mano krepšelis {% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row d-flex justify-content-center h-100">
+            {% if purchases|length == 0%}
+                <h3 class="empty-cart">Krepšelis dar tuščias <br><br><a href="{{ url_for('home') }}" class="btn btn-secondary btn-lg">Apsipirkti</a></h3>
+            {% else %}
+                <table class="table cart-table">
+                    <thead class="thead-light">
+                    <tr>
+                      <th scope="col">Prekė</th>
+                      <th scope="col">Pavadinimas</th>
+                      <th scope="col">Kaina</th>
+                      <th scope="col"></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for purchase in purchases %}
+                    <tr>
+                      <td class="align-middle"><img class="cart-img" src="{{ purchase.photo_url }}"></td>
+                      <td class="align-middle">{{ purchase.name }}</td>
+                      <td class="align-middle">€{{ purchase.price }}</td>
+                      <td class="align-middle"><a href="{{ url_for('delete_from_bag', bread_id=purchase.id) }}">Pašalinti</a></td>
+                    </tr>
+                    {% endfor %}
+                    <tr class="table-primary">
+                      <td>Suma</td>
+                      <td></td>
+                      <td>€{{ total | round}}</td>
+                      <td></td>
+                    </tr>
+                    </tbody>
+                  </table>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}
