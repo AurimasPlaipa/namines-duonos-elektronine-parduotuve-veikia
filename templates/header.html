@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='1.jpg') }}"> -->
 
     <!-- Font Awesome Icons -->
     <script src="https://kit.fontawesome.com/3b64579bbf.js" crossorigin="anonymous"></script>
@@ -19,29 +20,29 @@
 
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item dropdown">
+                <li class="nav-bread dropdown">
                   <a  href="{{ url_for('selected_query', q='bread') }}"  aria-haspopup="true" aria-expanded="false" class="btn btn-light btn-lg">
                     Duonos
                   </a>
             </ul>
             <ul class="navbar-nav ml-auto">
                 {% if not current_user.is_authenticated: %}
-                <li class="nav-item">
+                <li class="nav-bread">
                     <a class="nav-link mr-auto" href="{{ url_for('register') }}">Registruotis</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-bread">
                     <a class="nav-link" href="{{ url_for('login') }}">Prisijungti</a>
                 </li>
                 {% else: %}
-                <li class="nav-item">
+                <li class="nav-bread">
                   <a class="nav-link" href="{{ url_for('my_bag_page') }}"><i class="fas fa-shopping-cart"></i></a>
                 </li>
 
-                <li class="nav-item dropdown">
+                <li class="nav-bread dropdown">
                     <a class="nav-link dropdown-toggle" href="{{ url_for('home') }}" id="navbarDropdownMenuProfile" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user"></i></a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuProfile">
-                        <a class="dropdown-item" href="{{ url_for('my_bag_page') }}">Mano krepšelis</a>
-                        <a class="dropdown-item" href="{{url_for('log_out')}}">Atsijungti</a>
+                        <a class="dropdown-bread" href="{{ url_for('my_bag_page') }}">Mano krepšelis</a>
+                        <a class="dropdown-bread" href="{{url_for('log_out')}}">Atsijungti</a>
                     </div>
                 </li>
                 {% endif %}

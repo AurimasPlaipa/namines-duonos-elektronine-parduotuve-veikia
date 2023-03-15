@@ -1,7 +1,7 @@
 body {
     margin: 4% 8% 3% 4%;
     text-align: center;
-    background-image: -webkit-linear-gradient(75deg, #b2c080 25%, #9cebad 75%)
+    background-image: -webkit-linear-gradient(75deg, #e0c4b8 25%, #87f78d 75%)
 }
 
 .navbar {
@@ -15,23 +15,23 @@ body {
 }
 
 .navbar-light .navbar-brand {
-    color: #1b1a17;
+    color: #1c0361d7;
     padding-right: 7rem;
     padding-left: 1rem;
     font-size: 2rem;
 }
 
 .navbar-light .navbar-nav .active>.nav-link, .navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .show>.nav-link {
-    color: #1b1a17;
+    color: #4a3cc7;
 }
 
 .navbar-light .navbar-nav .nav-link {
-    color: #1b1a17;
+    color: #394cbd;
     font-size: 1.2rem;
 }
 
 .navbar-light .navbar-nav .nav-link:focus, .navbar-light .navbar-nav .nav-link:hover {
-    color: #a35709 !important;
+    color: #703b05 !important;
 }
 
 .dropdown:hover .dropdown-menu {
@@ -45,7 +45,7 @@ body {
 
 .card, .img-fluid {
     min-height: 15rem;
-    background-color: #FFFFFF;
+    background-color: #e9d9d9;
     padding: 0;
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
@@ -54,9 +54,6 @@ body {
     width: 15rem;
 }
 
-.blur {
-    filter: grayscale(30%) blur(4px);
-}
 
 .card-img-top {
     width: 100%;
@@ -180,51 +177,7 @@ footer .footer_main .tag a i:hover{
     color: #0f0d0f;
 }
 
-footer .footer_main .tag .social_link{
-    display: flex;
-}
 
-footer .footer_main .tag .social_link a{
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    text-align: center;
-    text-decoration: none;
-    color: black;
-    box-shadow: 0 0 20px 10px rgba(0,0,0,0.05);
-    position: relative;
-    margin: 0 5px;
-    z-index: 10;
-    overflow: hidden;
-}
-
-footer .footer_main .tag .social_link a .fa-brands{
-    font-size: 15px;
-    line-height: 30px;
-    z-index: 10;
-    position: relative;
-    transition: 0.5s;
-}
-
-footer .footer_main .tag .social_link a:hover i{
-    color: white;
-}
-
-footer .footer_main .tag .social_link a::after{
-    content: '';
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: -90px;
-    background: linear-gradient(-45deg, #181316 , #0c0b0c);
-    position: absolute;
-    z-index: -10;
-    transition: 0.5s;
-}
-
-footer .footer_main .tag .social_link a:hover::after{
-    left: 0;
-}
 
 footer .footer_main .tag .search_bar{
     width: 230px;
