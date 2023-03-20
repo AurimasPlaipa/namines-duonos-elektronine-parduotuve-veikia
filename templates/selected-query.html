@@ -12,7 +12,7 @@
                     <div class="col sm-12 md-4 lg-3">
                         <div class="card">
                             <div class="image-text-holder">
-                                <a href="{{ url_for('selected_bread', bread_id=bread.id) }}"><img src="{{ '../' + bread.photo_url }}" class="card-img-top card-id img-fluid">
+                                <a href="{{ url_for('selected_bread', bread_id=bread.id) }}"><img src="{{ 'static/uploads' + bread.photo_url }}" class="card-img-top card-id img-fluid">
                                 </a>
                                 <a href="{{ url_for('selected_bread', bread_id=bread.id) }}" class="image-text">Daugiau informacijos <i class="fas fa-search"></i></a>
                             </div>

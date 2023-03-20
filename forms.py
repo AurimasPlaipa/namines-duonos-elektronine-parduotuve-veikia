@@ -20,10 +20,7 @@ class RegisterForm(FlaskForm):
 
 class BreadForm(FlaskForm):
     name = StringField("Pavadinimas", validators=[DataRequired()])
-    # type = StringField("Tipas", validators=[DataRequired()])
     price = FloatField("Kaina", validators=[DataRequired()])
-    # supply = IntegerField("Kiek turime sandėlyje", validators=[DataRequired()])
-    # size = StringField("Dydis (kiekis)", validators=[DataRequired()])
     description = StringField("Produkto aprašymas", validators=[DataRequired()])
     photo = FileField("Pridėti paveikslėlį", validators=[FileRequired(), FileAllowed(["jpg", "png", "jpeg"], "Įkelti galima tik paveikslėlius!")])
     submit = SubmitField("Įkelti produktą")

@@ -14,7 +14,7 @@
                             <div class="image-text-holder">
                                 <a href="{{ url_for('selected_bread', bread_id=bread.id) }}">
                                     <img src="{{'static/uploads' }}" class="card-img-top card-id img-fluid">
-                                    <img src="{{ url_for('static', filename='uploads/1.jpg') }}" class="card-img-top card-id img-fluid">
+                                    <img src="{{ url_for('static/uploads', filename='.jpg') }}" class="card-img-top card-id img-fluid">
 
                                 </a>
                                 <a href="{{ url_for('selected_bread', bread_id=bread.id) }}" class="image-text">Daugiau informacijos <i class="fas fa-search"></i></a>

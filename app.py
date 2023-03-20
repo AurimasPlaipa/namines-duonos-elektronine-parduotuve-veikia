@@ -15,7 +15,7 @@ app.app_context().push()
 Bootstrap(app)
 
 
-app.config["SECRET_KEY"] = "444517abrsėįšįę147823čęį09ūįę"
+app.config["SECRET_KEY"] = "Your secret string"
 
 
 basedir = os.path.abspath(os.path.dirname(__file__))
@@ -60,7 +60,6 @@ class Bread(db.Model):
     name = db.Column(db.String(200), nullable=False)
     price = db.Column(db.Float(precision=2), nullable=False)
     description = db.Column(db.String(2000), nullable=False)
-    # photo_url = db.Column(db.Integer, nullable=False)
     # Parent
     # purchase = relationship("Purchase", back_populates="bread")
 
@@ -214,7 +213,7 @@ def add_bread():
             name=form.name.data.title(),
             price=form.price.data,
             description =form.description.data,
-            photo_url='static/uploads/' + filename
+            # photo_url='static/uploads/' + filename
         )
         # Add item to DB
         db.session.add(new_bread)
@@ -245,10 +244,10 @@ def delete_bread(bread_id):
 #     random_hex = secrets.token_hex(8)
 #     _, f_ext = os.path.splitext(form_picture.filename)
 #     picture_fn = random_hex + f_ext
-#     picture_path = os.path.join(app.root_path, 'static/profilio_nuotraukos', picture_fn)
+#     picture_path = os.path.join(app.root_path, 'static/uploads', picture_fn)
 
 #     output_size = (125, 125)
-#     i = Image.open(form_picture)
+#     i = image.open(form_picture)
 #     i.thumbnail(output_size)
 #     i.save(picture_path)
 
