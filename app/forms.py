@@ -1,8 +1,12 @@
+from flask_login import current_user
 from flask_wtf import FlaskForm
 from flask_wtf.file import FileField, FileAllowed, FileRequired
-from wtforms import StringField, PasswordField, SubmitField, IntegerField, FloatField
-from wtforms.validators import DataRequired, Email, Length, EqualTo
-
+from wtforms import StringField,SubmitField, PasswordField, BooleanField, SelectField, DateField, TextAreaField, PasswordField, BooleanField, FloatField
+from wtforms.validators import DataRequired, Length, EqualTo, Email, ValidationError, EqualTo
+from wtforms_sqlalchemy.fields import QuerySelectField, QuerySelectMultipleField
+from app.models.Bread import Bread
+from app.models.Purchase import Purchase 
+from app.models.User import User
 
 class LoginForm(FlaskForm):
     email = StringField('El. Paštas: ', validators=[DataRequired(), Email(message="Įveskite teisingą el. pašto adresą.")])
