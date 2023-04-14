@@ -19,6 +19,18 @@ from app.models.Purchase import Purchase
 from datetime import datetime, timezone, timedelta
 from sqlalchemy.exc import IntegrityError
 
+@login_manager.user_loader
+def load_user(id):
+    return User.query.get(int(id))
+
+
+def admin_required(f):
+    @wraps(f)
+    def decorated_function(*args, **kwargs):
+        if current_user.id != 1:
+            return abort(403)
+        return f(*args, **kwargs)
+    return decorated_function
 
 @app.route("/")
 def home():

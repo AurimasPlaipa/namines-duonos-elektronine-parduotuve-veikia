@@ -14,7 +14,7 @@ class Purchase(db.Model):
     paid = db.Column(db.Boolean, nullable=False)
 
     # Relationships
-    purchaser_id = db.Column(db.Integer, db.ForeignKey("users.id"))
+    # purchaser_id = db.Column(db.Integer, db.ForeignKey("users.id"))
     bread_id = db.Column(db.Integer, db.ForeignKey("breads.id"))
     
 # with app.app_context():
