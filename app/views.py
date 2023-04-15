@@ -123,8 +123,7 @@ def register():
         hashed_and_salted_password = generate_password_hash(
             password=form.password.data,
             method="pbkdf2:sha256",
-            salt_length=8
-        )
+            salt_length=16)
         new_user = User(
             name=form.name.data,
             email=form.email.data,
