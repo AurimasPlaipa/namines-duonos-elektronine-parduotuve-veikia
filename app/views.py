@@ -120,14 +120,15 @@ def login():
 def register():
     form = RegisterForm()
     if form.validate_on_submit() and form.validate():
-        hashed_and_salted_password = generate_password_hash(
-            password=form.password.data,
-            method="pbkdf2:sha256",
-            salt_length=16)
+        # hashed_and_salted_password = generate_password_hash(
+        #     password=form.password.data,
+        #     method="pbkdf2:sha256",
+        #     salt_length=16)
+        hashed_and_salted_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
         new_user = User(
             name=form.name.data,
             email=form.email.data,
-            password=hashed_and_salted_password,
+            password=hashed_and_salted_password
         )
         db.session.add(new_user)
         db.session.commit()

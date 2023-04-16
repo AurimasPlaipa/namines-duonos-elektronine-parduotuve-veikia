@@ -1,13 +1,82 @@
-{% extends 'base.html' %}
-{% import 'bootstrap/wtf.html' as wtf %}
+{% extends "base.html" %}
 
-{% block title %} Registracija {% endblock %}
+{% block title %}Registracija{% endblock %}
+
 {% block content %}
-<div class="container">
-    <div class="wtf-forms">
-        <p class="flash-message">Sveiki atvykę į naminės duonos elektroninę parduotuvę</p>
-        {{ wtf.quick_form(form, novalidate=True, button_map={'register_button': 'btn btn-secondary btn-lg'}) }}
-    </div>
+<div class="content-section">
+    <form method="POST" action="{{ url_for('register') }}">
+        {{ form.hidden_tag() }}
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4">Registracija</legend>
+            <div class="form-group">
 
+                {{ form.name.label(class="form-control-label h5 text-muted") }} {% if
+
+                form.name.errors %} {{ form.name(class="form-control form-control-lg
+
+                        is-invalid") }}
+
+                        <div class="invalid-feedback">
+
+                              {% for error in form.name.errors %}
+
+                              <span>{{ error }}</span>
+
+                              {% endfor %}
+
+                            </div>
+
+                        {% else %} {{ form.name(class="form-control form-control-lg") }} {%
+
+                        endif %}
+
+                      </div>
+            <div class="form-group">
+                {{ form.email.label(class="form-control-label") }}
+                {% if form.email.errors %}
+                {{ form.email(class="form-control form-control-lg is-invalid") }}
+                <div class="invalid-feedback">
+                    {% for error in form.email.errors %}
+                    <span>{{ error }}</span>
+                    {% endfor %}
+                </div>
+                {% else %}
+                {{ form.email(class="form-control form-control-lg") }}
+                {% endif %}
+            </div>
+            <div class="form-group">
+                {{ form.password.label(class="form-control-label") }}
+                {% if form.password.errors %}
+                {{ form.password(class="form-control form-control-lg is-invalid") }}
+                <div class="invalid-feedback">
+                    {% for error in form.password.errors %}
+                    <span>{{ error }}</span>
+                    {% endfor %}
+                </div>
+                {% else %}
+                {{ form.password(class="form-control form-control-lg") }}
+                {% endif %}
+            </div>
+            <div class="form-group">
+                {{ form.confirm_password.label(class="form-control-label") }}
+                {% if form.confirm_password.errors %}
+                {{ form.confirm_password(class="form-control form-control-lg is-invalid") }}
+                <div class="invalid-feedback">
+                    {% for error in form.confirm_password.errors %}
+                    <span>{{ error }}</span>
+                    {% endfor %}
+                </div>
+                {% else %}
+                {{ form.confirm_password(class="form-control form-control-lg") }}
+                {% endif %}
+            </div>
+        </fieldset>
+        <button class="btn btn-primary mt-3" type="submit">Registruotis</button>
+    </form>
 </div>
-{% endblock %}
+<div class="border-top pt-3">
+    <small class="text-muted">
+        Jau turite paskyrą? <a class="ml-2" href="{{ url_for('login') }}">Prisijungti</a>
+    </small>
+</div>
+{% endblock content %}
